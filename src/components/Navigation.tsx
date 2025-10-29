@@ -5,6 +5,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/logo.png";
 import {hero} from "@/data/hero";
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,7 +39,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-         <a href="/" className="text-4xl font-bold gradient-text flex items-center">
+          <a href="/" className="text-4xl font-bold gradient-text flex items-center">
             {hero.siteLogo ? (
               <img src={hero.siteLogo} alt={hero?.siteName || "Shiplu"} className="h-10 w-auto" />
             ) : (
@@ -47,7 +48,7 @@ const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 px-4">
+          <div className="hidden md:flex items-center gap-4 px-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -81,24 +82,30 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in bg-background/95 backdrop-blur-lg rounded-lg">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <div className="flex items-center justify-center gap-2 mt-4 pt-4 border-t border-border">
-              <Sun className="h-4 w-4 text-muted-foreground" />
+          <div className="md:hidden py-6 px-4 animate-fade-in bg-gradient-to-b from-background/95 to-background/98 backdrop-blur-lg rounded-2xl shadow-xl border border-border/50 mt-2">
+            <div className="space-y-2">
+              {navItems.map((item, index) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-4 px-6 text-lg font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 hover:translate-x-1 active:scale-95"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {item.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-3 mt-6 pt-6 border-t border-border/50">
+              <Sun className="h-5 w-5 text-muted-foreground" />
               <Switch
                 checked={theme === "dark"}
                 onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
               />
-              <Moon className="h-4 w-4 text-muted-foreground" />
+              <Moon className="h-5 w-5 text-muted-foreground" />
             </div>
           </div>
         )}

@@ -8,8 +8,8 @@ export const hero = {
     downloadCV: "CV",
     myProjects: "View My Work",
     jobStatus: "Available for Work",
-    heroImage: "/src/assets/profile-photo.jpg",
+    heroImage: "/profile-photo.jpg",
     cvLink: "/MD_ENZAMAMUL_HAQUE_SHIPLU.pdf",
-    siteLogo: "/src/assets/logo2.png",
+    siteLogo: "/logo2.png",
     siteName: "< SHIPLU />"
 };
