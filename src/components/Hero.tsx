@@ -1,9 +1,49 @@
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Send } from "lucide-react";
 import SkillsOrbit from "./SkillsOrbit";
 import {hero} from "@/data/hero";
+import { toast } from "@/hooks/use-toast";
+import { Progress } from "@/components/ui/progress";
 
 const Hero = () => {
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadCV = async () => {
+    setIsDownloading(true);
+    setDownloadProgress(0);
+
+    // Simulate download progress
+    const interval = setInterval(() => {
+      setDownloadProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 100);
+
+    // Simulate download
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = hero?.cvLink;
+      link.download = `${hero?.name}'s CV.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setIsDownloading(false);
+      setDownloadProgress(0);
+      
+      toast({
+        title: "Download Complete!",
+        description: "Your CV has been downloaded successfully.",
+      });
+    }, 1000);
+  };
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[150px] md:pt-0">
       {/* Animated Background Gradient */}
@@ -70,12 +110,27 @@ const Hero = () => {
                 
                   </a>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
+                {/* <Button variant="secondary" size="lg" asChild>
                   <a href={hero?.cvLink} download={`${hero?.name}'s CV.pdf`} className="gap-2">
                     <Download size={20} />
                     {hero?.downloadCV}
                   </a>
-                </Button>
+                </Button> */}
+                 <Button 
+                    variant="secondary" 
+                    size="lg" 
+                    onClick={handleDownloadCV}
+                    disabled={isDownloading}
+                    className="gap-2 w-full"
+                  >
+                    <Download size={20} />
+                    {isDownloading ? "Downloading..." : "CV"}
+                  </Button>
+                  {isDownloading && (
+                    <div className="absolute -bottom-2 left-0 right-0 px-2">
+                      <Progress value={downloadProgress} className="h-1" />
+                    </div>
+                  )}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
   const whatsappNumber = "+8801711002919"; // Replace with your WhatsApp number
@@ -11,14 +12,13 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <Button
+    <button
       onClick={handleClick}
-      size="icon"
-      className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white"
+      className="fixed flex items-center justify-center bottom-6 right-6 h-16 w-16 rounded-full shadow-lg hover:shadow-xl z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white"
       aria-label="Contact on WhatsApp"
     >
-      <MessageCircle size={24} />
-    </Button>
+      <FaWhatsapp className="h-8 w-8 md:h-10 md:w-10" />
+    </button>
   );
 };
 
