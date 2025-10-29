@@ -11,5 +11,9 @@ export const hero = {
     heroImage: "/profile-photo.jpg",
     cvLink: "/MD_ENZAMAMUL_HAQUE_SHIPLU.pdf",
     siteLogo: "/logo2.png",
-    siteName: "< SHIPLU />"
+    siteName: "< SHIPLU />",
+    cvDownloadComplete: "Download Complete 🎉",
+    cvDownloadSuccess: "Thank you for downloading my CV! I appreciate your interest and look forward to connecting with you.",
+    cvDownloadFailed: "Failed to download CV. Please try again later.",
+    cvDownloadInProgress: "Downloading CV...",
 };

@@ -39,8 +39,8 @@ const Hero = () => {
       setDownloadProgress(0);
       
       toast({
-        title: "Download Complete!",
-        description: "Your CV has been downloaded successfully.",
+        title: `${hero?.cvDownloadComplete}`,
+        description: `${hero?.cvDownloadSuccess}`,
       });
     }, 1000);
   };
@@ -124,7 +124,7 @@ const Hero = () => {
                     className="gap-2 w-full"
                   >
                     <Download size={20} />
-                    {isDownloading ? "Downloading..." : "CV"}
+                    {isDownloading ? `${hero?.cvDownloadInProgress}` : "CV"}
                   </Button>
                   {isDownloading && (
                     <div className="absolute -bottom-2 left-0 right-0 px-2">
