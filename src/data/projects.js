@@ -103,4 +103,20 @@ export const projects = [
         github: "#",
         live: "https://saifan.cz/",
     },
+    {
+        title: "School Website",
+        description: "A modern and fully responsive school website built using React, Vite, TypeScript, Tailwind CSS, and shadcn/ui. It features a clean and elegant frontend design focused on usability, performance, and accessibility.",
+        tags: ["React", "Vite", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+        image: "https://res.cloudinary.com/dy2eux3g0/image/upload/v1762429669/Macbook-Air-kplsc.vercel.app_1_ljmoqh.png",
+        github: "https://github.com/shiplu2111/iulsc-portal",
+        live: "https://kplsc.vercel.app/",
+    },
+    {
+        title: "Blood Donation Website",
+        description: "A modern and fully responsive blood donation website built using React, Vite, TypeScript, Tailwind CSS, and shadcn/ui. It features a clean and elegant frontend design focused on usability, performance, and accessibility.",
+        tags: ["React", "Vite", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+        image: "https://res.cloudinary.com/dy2eux3g0/image/upload/v1762429996/Macbook-Air-give-life-again.vercel.app_p9xiwj.png",
+        github: "https://github.com/shiplu2111/give-life-again",
+        live: "https://give-life-again.vercel.app/",
+    },
 ];
